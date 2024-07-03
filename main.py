@@ -8,6 +8,8 @@ bg_rect = bg_image.get_rect()
 my_player = Player(100, 300)
 
 bg_rect.topleft = (0,0)
+FPS = 60
+clock = pygame.time.Clock()
 
 screen = pygame.display.set_mode((screen_width, screen_height))
 running = True
@@ -17,8 +19,10 @@ while running == True:
             running = False
     screen.blit(bg_image, bg_rect) 
     my_player.draw(screen)  
+    my_player.animation()
     my_player.move()     
     pygame.display.update()
+    clock.tick(FPS)
 
 
 
